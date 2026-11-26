@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#f5f5f5; color:#222 }
+.app { max-width:520px; margin:32px auto; padding:20px; background:#fff; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08) }
+h1 { margin:0 0 12px 0; font-size:1.4rem }
+.controls { display:flex; gap:8px; margin-bottom:12px }
+button { padding:8px 12px; border-radius:6px; border:1px solid #ccc; background:#fff; cursor:pointer }
+button:focus { outline:3px solid #cfe8ff }
+.status { margin-bottom:12px; font-weight:600 }
+.board { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; width:100%; max-width:360px; margin:0 auto; background:#ddd; padding:6px; border-radius:8px }
+.cell { background:#fff; aspect-ratio:1 / 1; display:flex; align-items:center; justify-content:center; font-size:48px; font-weight:700; color:#222; user-select:none; cursor:pointer; border-radius:6px; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.04) }
+.cell:focus { outline:3px solid #cfe8ff }
+.cell.x { color:#b71c1c } /* vermelho para X */
+.cell.o { color:#0d47a1 } /* azul para O */
+.cell.winning { box-shadow:0 0 0 4px rgba(255, 235, 59, 0.12) inset; }
+.note { margin-top:12px; font-size:0.9rem; color:#444 }
+
+/* Dark / black board styles (feature) */
+.board--black { background:#000; padding:6px; }
+.board--black .cell { background: #111; color: #fff; box-shadow: inset 0 -2px 0 rgba(255,255,255,0.03); }
+/* Preserve distinguishable X/O hue but force sufficient contrast when on black board */
+.board--black .cell.x { color: #fff }
+.board--black .cell.o { color: #fff }
+
+/* Winning highlight that remains visible on black board */
+.board--black .cell.winning { box-shadow: 0 0 0 4px rgba(255,255,255,0.08) inset; }
+
+/* Responsive */
+@media (max-width:420px) {
+  .cell { font-size:36px }
+}
